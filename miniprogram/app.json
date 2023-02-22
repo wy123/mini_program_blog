@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/hot/hot",
+    "pages/discuss/discuss"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "文哥热搜",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#FFA500",
+    "list": [{
+      "pagePath": "pages/hot/hot",
+      "text": "热搜",
+      "iconPath": "/static/img/search.png",
+      "selectedIconPath": "/static/img/search_selected.png"
+    }, {
+      "pagePath": "pages/discuss/discuss",
+      "text": "热议",
+      "iconPath": "/static/img/discuss.png",
+      "selectedIconPath": "/static/img/discuss_selected.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

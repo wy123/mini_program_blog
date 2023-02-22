@@ -1,0 +1,108 @@
+<view style="height: {{windowHeight}}px;">
+  <scroll-view bindscroll='layoutScroll' scroll-y="true" style="height: 100vh;">
+    <!-- swiper顶部图片轮播切换 -->
+   <swiper class='swiper' interval="2000">
+			<block class='block-box'>
+				<swiper-item>
+					<image src="../../static/img/bg_discuss.jpg" class="repair-img"  />
+				</swiper-item>
+			</block>
+	</swiper>
+
+    <scroll-view scroll-x="true" class="nav {{navFixed? 'positionFixed':''}}">
+      <!-- 导航栏 -->
+      <view class='topTabSwiper'>
+        <view class='one-tab' data-current="0" bindtap='checkCurrent'>
+          <view data-current="0" class='{{currentData == 0 ? "tab-title-select" : "tab-title"}}'>最新</view>
+          <view class='{{currentData == 0 ? "one-tab-line" : ""}}' data-current="0"></view>
+        </view>
+        <view class='center-tab' data-current="1" bindtap='checkCurrent'>
+          <view data-current="1" class='{{currentData == 1 ? "tab-title-select" : "tab-title"}}'></view>
+          <view class='{{currentData == 1 ? "two-tab-line" : ""}}' data-current="1"></view>
+        </view>
+
+        <view class='tab' data-current="2" bindtap='checkCurrent'>
+          <view data-current="2" class='{{currentData == 2 ? "tab-title-select" : "tab-title"}}'>最热</view>
+          <view class='{{currentData == 2 ? "one-tab-line" : ""}}' data-current="2"></view>
+        </view>
+      </view>
+
+    </scroll-view>
+
+    <view class='one-page' wx:if="{{currentData==0}}">
+      <view class="hot" wx:for="{{news}}" wx:key="index" wx:index="index" wx:for-item="hotItem">
+        <view class="item-hot">
+          <view class="item-hot-index-view">
+            <text class="item-hot-index">{{index+1}}</text>
+          </view>
+          <view class="item-hot-title-view">
+            <text class="item-hot-title">#{{hotItem.title}}#</text> 
+          </view>        
+        </view>  
+        <view class="rank-view">
+          <view class="rank">
+            <view>
+              {{hotItem.title}}{{hotItem.title}}
+            </view>
+            <view class="rank-read">
+              <text class="news-num">{{hotItem.num}}人在讨论</text>
+              <text class="author">{{hotItem.num}}在阅读</text>
+            </view>
+          </view>
+          <view class="news-view">
+            <image class="news-img" src="../../static/img/bg.jpg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='two-page' wx:if="{{currentData==1}}">
+      <view class="news" wx:for="{{news}}" wx:key="index" wx:index="index" wx:for-item="hotItem">
+        <view class="news-rank">
+          <view class="news-view">
+            <image class="news-img" src="../../static/img/bg.jpg"></image>
+          </view>
+          <view class="title-view">
+            <view class="title-type-view">
+              <text class="title">{{hotItem.title}}</text>
+              <view wx:if="{{hotItem.type_bg_color != ''}}" class="type-view" style="background-color: {{hotItem.type_bg_color}};">
+                <text class="type">{{hotItem.type_name}}</text>
+              </view>
+            </view>
+            <view>
+              <text class="news-num">{{hotItem.num}}阅读</text>
+              <text class="author"> | @央视新闻</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='three-page' wx:if="{{currentData==2}}">
+      <view class="hot" wx:for="{{entertainment}}" wx:key="index" wx:index="index" wx:for-item="hotItem">
+        <view class="item-hot">
+          <view class="item-hot-index-view">
+            <text class="item-hot-index">{{index+1}}</text>
+          </view>
+          <view class="item-hot-title-view">
+            <text class="item-hot-title">#{{hotItem.title}}#</text> 
+          </view>        
+        </view>  
+        <view class="rank-view">
+          <view class="rank">
+            <view>
+              {{hotItem.title}}{{hotItem.title}}
+            </view>
+            <view class="rank-read">
+              <text class="news-num">{{hotItem.num}}人在讨论</text>
+              <text class="author">{{hotItem.num}}在阅读</text>
+            </view>
+          </view>
+          <view class="news-view">
+            <image class="news-img" src="../../static/img/bg.jpg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
