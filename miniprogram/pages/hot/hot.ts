@@ -20,7 +20,7 @@ Page({
         index_color:'#ff476f',
         index_font_style:'',
         index_text:'↑',        
-        title:'看中国式现代化图景',
+        title:'又一次看中国式现代化图景',
         num:'',
         type:'3',
         type_bg_color:'#FFA500',
